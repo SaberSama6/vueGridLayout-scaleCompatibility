@@ -1,5 +1,14 @@
-module.exports =
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("vue"));
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["VueGridLayout"] = factory(require("vue"));
+	else
+		root["VueGridLayout"] = factory(root["Vue"]);
+})((typeof self !== 'undefined' ? self : this), function(__WEBPACK_EXTERNAL_MODULE__8bbf__) {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -2331,7 +2340,7 @@ module.exports = {
 /***/ "8bbf":
 /***/ (function(module, exports) {
 
-module.exports = require("vue");
+module.exports = __WEBPACK_EXTERNAL_MODULE__8bbf__;
 
 /***/ }),
 
@@ -4496,12 +4505,12 @@ var web_dom_iterable = __webpack_require__("ac6a");
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 var external_commonjs_vue_commonjs2_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_root_Vue_);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"44ca599e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/GridItem.vue?vue&type=template&id=5d0d67fe&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"44ca599e-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/GridItem.vue?vue&type=template&id=68e2ee74&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"item",staticClass:"vue-grid-item",class:_vm.classObj,style:(_vm.style)},[_vm._t("default"),(_vm.resizableAndNotStatic)?_c('span',{ref:"handle",class:_vm.resizableHandleClass}):_vm._e()],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/GridItem.vue?vue&type=template&id=5d0d67fe&
+// CONCATENATED MODULE: ./src/components/GridItem.vue?vue&type=template&id=68e2ee74&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es6.regexp.match.js
 var es6_regexp_match = __webpack_require__("4917");
@@ -5534,7 +5543,11 @@ var interact = __webpack_require__("5014");
       default: 'a, button'
     },
     scale: {
-      type: Number
+      type: Number,
+      required: false,
+      default: function _default() {
+        return 1;
+      }
     }
   },
   inject: ["eventBus"],
@@ -5935,12 +5948,12 @@ var interact = __webpack_require__("5014");
             var clientRect = event.target.getBoundingClientRect();
 
             if (this.renderRtl) {
-              newPosition.left = (clientRect.right - parentRect.right) * -1;
+              newPosition.left = (clientRect.right - parentRect.right) * -1 / this.scale;
             } else {
-              newPosition.left = clientRect.left - parentRect.left;
+              newPosition.left = (clientRect.left - parentRect.left) / this.scale;
             }
 
-            newPosition.top = clientRect.top - parentRect.top;
+            newPosition.top = (clientRect.top - parentRect.top) / this.scale;
             this.dragging = newPosition;
             this.isDragging = true;
             break;
@@ -5956,12 +5969,12 @@ var interact = __webpack_require__("5014");
 
 
             if (this.renderRtl) {
-              newPosition.left = (_clientRect.right - _parentRect.right) * -1;
+              newPosition.left = (_clientRect.right - _parentRect.right) * -1 / this.scale;
             } else {
-              newPosition.left = _clientRect.left - _parentRect.left;
+              newPosition.left = (_clientRect.left - _parentRect.left) / this.scale;
             }
 
-            newPosition.top = _clientRect.top - _parentRect.top;
+            newPosition.top = (_clientRect.top - _parentRect.top) / this.scale;
             this.dragging = null;
             this.isDragging = false; // shouldUpdate = true;
 
@@ -7085,4 +7098,5 @@ module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u20
 /***/ })
 
 /******/ })["default"];
-//# sourceMappingURL=vuegridlayout-scalecompatibility.common.js.map
+});
+//# sourceMappingURL=vuegridlayout-scalecompatibility-1.0.umd.js.map

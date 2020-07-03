@@ -1,8 +1,8 @@
 {
-  "name": "vuegridlayout-scalecompatibility",
-  "version": "1.0.0",
+  "name": "vuegridlayout-scalecompatibility-1.0",
+  "version": "1.0.4",
   "description": "改造自https://github.com/jbaysolutions/vue-grid-layout插件，解决插件因为transform:scale(xx)缩放后对拖拽，缩放，最大最小值偏差的Bug。\r 详细使用方式查看:https://github.com/jbaysolutions/vue-grid-layout",
-  "main": "dist/vuegridlayout-scalecompatibility.common.js",
+  "main": "dist/vuegridlayout-scalecompatibility-1.0.common.js",
   "directories": {
     "doc": "docs",
     "example": "examples",

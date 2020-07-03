@@ -192,8 +192,12 @@
                 default: 'a, button'
             },
             scale:{
-              type:Number
-            }
+              type: Number,
+              required: false,
+              default: ()=>{
+                return 1
+              }
+            },
         },
         inject: ["eventBus"],
         data: function () {
@@ -568,11 +572,11 @@
                         let parentRect = event.target.offsetParent.getBoundingClientRect();
                         let clientRect = event.target.getBoundingClientRect();
                         if (this.renderRtl) {
-                            newPosition.left = (clientRect.right - parentRect.right) * -1;
+                            newPosition.left = ((clientRect.right - parentRect.right) * -1) / this.scale;
                         } else {
-                            newPosition.left = clientRect.left - parentRect.left;
+                            newPosition.left = (clientRect.left - parentRect.left) / this.scale;
                         }
-                        newPosition.top = clientRect.top - parentRect.top;
+                        newPosition.top = (clientRect.top - parentRect.top) / this.scale;
                         this.dragging = newPosition;
                         this.isDragging = true;
                         break;
@@ -583,11 +587,11 @@
                         let clientRect = event.target.getBoundingClientRect();
 //                        Add rtl support
                         if (this.renderRtl) {
-                            newPosition.left = (clientRect.right - parentRect.right) * -1;
+                            newPosition.left = ((clientRect.right - parentRect.right) * -1) / this.scale;
                         } else {
-                            newPosition.left = clientRect.left - parentRect.left;
+                            newPosition.left = (clientRect.left - parentRect.left) / this.scale;
                         }
-                        newPosition.top = clientRect.top - parentRect.top;
+                        newPosition.top = (clientRect.top - parentRect.top) / this.scale;
                         this.dragging = null;
                         this.isDragging = false;
                         // shouldUpdate = true;

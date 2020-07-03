@@ -45,7 +45,6 @@
                     :vertical-compact="true"
                     :use-css-transforms="true"
                     :responsive="responsive"
-                    :scale="scale"
                     @layout-created="layoutCreatedEvent"
                     @layout-before-mount="layoutBeforeMountEvent"
                     @layout-mounted="layoutMountedEvent"
@@ -58,7 +57,6 @@
                            :y="item.y"
                            :w="item.w"
                            :h="item.h"
-                           :scale="scale"
                            :i="item.i"
                            :minW="1" 
                            :minH="1"
@@ -154,7 +152,7 @@
                 rowHeight: 30,
                 colNum: 12,
                 index: 0,
-                scale:1,
+                scale:0.6,
             }
         },
         mounted: function () {
